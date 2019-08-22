@@ -4,7 +4,7 @@ Python pakket met standaard funksie wat die energievloei van 'n Axpert  gelykrig
 
 Die vloei van energie word met die volgende vloeidiagram analiseer:
 
-![EnergieVloei](F:\Rugsteun\Projekte\Huis\Verbeteringe\Sonpanele\Logs\dataproses\Prente\EnergieVloei.png)
+![EnergieVloei](Prente/EnergieVloei.png)
 
 Die funksies in die pakket moet die volgende vrae beantwoord:
 
