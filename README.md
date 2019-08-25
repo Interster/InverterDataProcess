@@ -36,3 +36,38 @@ Die data het partykeer foute in.  Daar is Linux opdragte wat voor die tyd op die
 Die daaglikse data word dan ingelees in Python.
 
 Dit word dan in 'n groter binêre databasis gestoor vir verder verwerking.
+
+## Axpert Gelykrigter QPIGS
+
+QPIGS<cr>: Device general status parameters inquiry
+Computer: QPIGS <CRC><cr>
+Device: ($N_1 N_2 N_3 .N_5 N_7 N_8 .N_{10} N_{12} N 13 N 14 .N 16 N 18 N 19 .N 21 N 23 N 24 N 25 N 26 N 28 N 29 N 30 N 31 N 33 N 34 N 35$ 
+N 37 N 38 N 39 N 41 N 42 .N 44 N 45 N 47 N 48 N 49 N 51 N 52 N 53 N 55 N 56 N 57 N 58 N 60 N 61 N 62 N 63 N 65 N 66 N 67 .N 69
+N 71 N 72 .N 74 N 75 N 77 N 78 N 79 N 80 N 81 b 83 b 84 b 85 b 86 b 87 b 88 b 89 b 90 N 92 N 93 N 95 N 96 N 98 N 99 N 100 N 101 N 102
+b 104 b 105 b 106 <CRC><cr>
+
+|      | Symbol             | Description                        | Notes/Unit                 |
+| ---- | ------------------ | ---------------------------------- | -------------------------- |
+| 1.   | (                  | Start byte                         | N: the integer from 0 to 9 |
+| 2.   | $N_1 N_2 N_3 .N_5$ | Grid voltage                       | V                          |
+| 3.   |                    | Grid frequency                     | Hz                         |
+| 4.   |                    | AC output voltage                  | V                          |
+| 5.   |                    | AC output frequency                | Hz                         |
+| 6.   |                    | AC output apparent power           | VA                         |
+| 7.   |                    | AC output active power             | W                          |
+| 8.   |                    | Output load percent                | %                          |
+| 9.   |                    | BUS voltage                        | V                          |
+| 10.  |                    | Battery voltage                    | V                          |
+| 11.  |                    | Battery charging current           | A                          |
+| 12.  |                    | Battery capacity                   | %                          |
+| 13.  |                    | Inverter heat sink temperature     | deg C                      |
+| 14.  |                    | PV Input current 1                 | A                          |
+| 15.  |                    | PV Input voltage 1                 | V                          |
+| 16.  |                    | Battery voltage from SCC 1         | V                          |
+| 17.  |                    | Battery discharge current          | A                          |
+| 18.  |                    | Device status                      |                            |
+| 19.  |                    | Battery voltage offset for fans on | 10mV                       |
+| 20.  |                    | EEPROM version                     |                            |
+| 21.  |                    | PV Charging power 1                | Watt                       |
+| 22.  |                    | Device status                      |                            |
+
