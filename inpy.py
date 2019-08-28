@@ -33,13 +33,39 @@ def plotinv(lysPlotParameters):
 
     plt.show()
 
+# Battery toestand plot:  Antwoord volgende vrae
+# Was die battery heeltemal leeg en hoe het dit ontlaai en gelaai
 plotinv(['Battery capacity'])
-
 plotinv(['Battery discharge current', 'Battery charging current'])
-
+# Kyk hoe die battery kapasiteit lyk vanaf 'n battery spanning oogpunt
+# Wys ook hoe spanning met die las verander
+plotinv(['BUS voltage'])
+plotinv(['Battery voltage'])
+plotinv(['Battery voltage from SCC 1'])
+# Drywing vanaf paneel:  Hoe baie son was daar en hoeveel drywing vanaf die paneel
 plotinv(['PV Charging power 1', 'AC output active power'])
-
+# Energiemeting in kWh op die meettoestel (Owl) is heel waarskynlik skynkrag.  Dit stem die
+# beste ooreen met die energie somtotaal soos bereken.
 plotinv(['PV Charging power 1', 'AC output apparent power'])
+# Kyk na die stroom en spanning op die panele.  Dit wys wanneer daar die meeste sonkrag is
+# en wys hoe die stroom en spanning oor die bereik van 'n dag wissel
+plotinv(['PV Input voltage 1'])
+plotinv(['PV Input current 1'])
+# Plot hoeveel las op die stelsel is:
+plotinv(['Output load percent'])
+# Plot die frekwensies om die krag kwaliteit te ondersoek
+plotinv(['Grid voltage', 'Grid frequency'])
+# Plot die insetspanning en uitsetspanning om te sien wanneer krag afgegaan het.
+plotinv(['AC output voltage', 'AC output frequency'])
+# Kyk of die gelykrigter warm geword het deur hitteruiler temperatuur te plot
+plotinv(['Inverter heat sink temperature'])
+
+                                  
+                                 
+                                 
+                                 
+
+
 
 # Differensieer om delta T te bereken
 df['dT'] = df['Time'].diff(1)
