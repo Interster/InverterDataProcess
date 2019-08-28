@@ -1,9 +1,15 @@
 # inpy - module waarmee die Axpert gelykrigter afgelaaide data prosesseer word
+#
+# Maak leers skoon met die volgende:
+# sed '/NAK/d' ./inverterlog_20190725.out > inverterlog_20190725.rep
+
+
 
 import pandas as pd
 
 # Leernaam:  Hierdie moet as 'n inset gestel word
-leernaam = 'inverterlog_20190417.out'
+#leernaam = 'inverterlog_20190417.out'
+leernaam = 'inverterlog_20190611.rep'
 
 df = pd.read_csv(leernaam, names=['Date', 'Time', 'Grid voltage', 'Grid frequency', 'AC output voltage', 'AC output frequency',
                                  'AC output apparent power', 'AC output active power', 'Output load percent',
@@ -100,4 +106,8 @@ print(df['EnergieOnttrekBattery'][1:-1].sum()*1000/48)
 
 # Skryf 'n verslag module wat 'n markdown verslag maak van 'n sekere dag se plot data.
 # Skryf 'n plot funksie wat 'n sekere plot maak.
+
+# Berekende energie onttrek uit battery is altyd meer as laai energie.  Hoe is dit moontlik?
+# Laai die battery miskien nie heeltemal nie?  Miskien moet laai stroom laer gestel word.
+# Miskien is die sampling rate te groot om die groot laaistrome te sien wat die battery laai?
 
