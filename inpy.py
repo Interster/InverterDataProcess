@@ -21,34 +21,25 @@ df['Time'] = pd.to_datetime(df['Time'], format='%H:%M:%S')
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 
-ax = plt.gca()
 
-df.plot(kind='line',x='DateTime', y='Battery capacity',ax=ax)
-plt.xticks(rotation=45)  # Maak die x-as geskrewe gedeelte teen 45 grade
-ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M')) # Formateer die tyd in ure en minute
+def plotinv(lysPlotParameters):
+    ax = plt.gca()
 
-plt.show()
+    for teller in range(0, len(lysPlotParameters)):
+        df.plot(kind='line',x='DateTime', y=lysPlotParameters[teller], ax=ax)
+    
+    plt.xticks(rotation=45)  # Maak die x-as geskrewe gedeelte teen 45 grade
+    ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M')) # Formateer die tyd in ure en minute
 
-ax = plt.gca()
-df.plot(kind='line',x='DateTime',y='Battery discharge current',ax=ax)
-df.plot(kind='line',x='DateTime',y='Battery charging current', color='red', ax=ax)
-plt.xticks(rotation=45)  # Changed here
-ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M'))
-plt.show()
+    plt.show()
 
+plotinv(['Battery capacity'])
 
+plotinv(['Battery discharge current', 'Battery charging current'])
 
-ax = plt.gca()
+plotinv(['PV Charging power 1', 'AC output active power'])
 
-df.plot(kind='line',x='DateTime',y='PV Charging power 1',ax=ax)
-df.plot(kind='line',x='DateTime',y='AC output active power', color='red', ax=ax)
-
-fig = ax.get_figure()
-
-plt.xticks(rotation=45)  # Changed here
-ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M'))
-
-plt.show()
+plotinv(['PV Charging power 1', 'AC output apparent power'])
 
 # Differensieer om delta T te bereken
 df['dT'] = df['Time'].diff(1)
@@ -80,4 +71,7 @@ print(df['EnergieOnttrekBattery'][1:-1].sum()*1000/48)
 # Te doen:
 # Kyk of die OWL nie eintlik verwys na skyndrywing VAR nie.  Miskien is dit wat dit wys en werklike drywing is eers na verliese?
 # Stel energiebalans op.  Wat gaan in en wat gaan uit.  En is daar 'n netto voordeel.
+
+# Skryf 'n verslag module wat 'n markdown verslag maak van 'n sekere dag se plot data.
+# Skryf 'n plot funksie wat 'n sekere plot maak.
 
