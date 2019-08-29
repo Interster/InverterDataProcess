@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Verwyder alle foutiewe lyne uit data leers van die gelykrigter logs
+# Foutiewe lyne bevat die string "NAK".  Verwyder alle lyne met "NAK" in
+# en stoor as 'n nuwe uitsetleer
+#
+# Onthou om hierdie leer die volgende eienskappe te gee:
+# chmod 755 preprocessInverterLog
+
+# cd ..
+
+for f in *.out; do echo "Prosesseer $f leer ..."; sed '/NAK/d' ./$f > $f.rep; done
+
+# Verander uitbreiding na *.rep
+for f in *.out.rep; do
+   mv -- "$f" "${f%.out.rep}.rep"
+done
+
+# Maak 'n lys van leers om in python in te lees
+ls *.rep > metinglys
+
+#cd InverterDataProcess

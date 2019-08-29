@@ -8,8 +8,8 @@
 import pandas as pd
 
 # Leernaam:  Hierdie moet as 'n inset gestel word
-#leernaam = 'inverterlog_20190417.out'
-leernaam = 'inverterlog_20190611.rep'
+leernaam = 'inverterlog_20190417.out'
+#leernaam = 'inverterlog_20190730_1.rep'
 
 df = pd.read_csv(leernaam, names=['Date', 'Time', 'Grid voltage', 'Grid frequency', 'AC output voltage', 'AC output frequency',
                                  'AC output apparent power', 'AC output active power', 'Output load percent',

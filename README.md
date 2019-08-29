@@ -71,3 +71,6 @@ b 104 b 105 b 106 <CRC><cr>
 | 21.  |                    | PV Charging power 1                | Watt                       |
 | 22.  |                    | Device status                      |                            |
 
+# Voorverwerking
+
+Die gemete data word vooraf skoongemaak met die "preprocessInverLog" uitvoerleer.  Dit verwyder datafoute uit die gemete data, spesifiek haal dit die lyne wat die string "NAK" bevat uit die dataleer.
