@@ -74,3 +74,20 @@ b 104 b 105 b 106 <CRC><cr>
 # Voorverwerking
 
 Die gemete data word vooraf skoongemaak met die "preprocessInverLog" uitvoerleer.  Dit verwyder datafoute uit die gemete data, spesifiek haal dit die lyne wat die string "NAK" bevat uit die dataleer.
+
+# Notas
+
+Die drywing wat die gelykrigter gebruik word gemeet met 'n OWL meter.  Dit wil voorkom asof die OWL meting die beste korrelasie toon met die skyndrywing (VA).  Dit is dus die kolom wat "AC output apparent power" is in die Axpert uitsetleer.
+
+Nog nie seker of hierdie korrek is nie:
+
+Om hierdie balans te ontleed, hier is die volgende data:
+30 Aug 9.223kWh gelewer aan gelykrigter (gemeet met OWL)
+
+Die energiebalans vir die gelykrigter is as volg:
+
+$$-P_{las} + P_{solar} - P_{laai battery} - P_{ontlaai battery} + P_{lynkrag} = 0$$
+
+Dus is die lynkrag:
+
+$$P_{lynkrag} = P_{las} - P_{solar} + P_{laai battery} + P_{ontlaai battery} $$

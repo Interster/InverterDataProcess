@@ -1,6 +1,6 @@
 # inpy - module waarmee die Axpert gelykrigter afgelaaide data prosesseer word
 #
-# Maak leers skoon met die volgende:
+# Maak leers eers skoon met die volgende voordat analise kan begin:
 # sed '/NAK/d' ./inverterlog_20190725.out > inverterlog_20190725.rep
 
 
@@ -9,21 +9,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 
-
-# Lees in die lys van metingsleers wat prossesseer moet word
-metinglysleernaam = 'metinglys'
-
-dfmetings = pd.read_csv(metinglysleernaam, names=['metings'], 
-                     sep=" ", engine='python')
-
-
-# Lees in 'n meting
-leernaam = dfmetings['metings'][2]
-
-
 class dagMeting:
     def __init__(self, metingleer):
-        self.df = pd.read_csv(leernaam, names=['Date', 'Time', 'Grid voltage', 'Grid frequency', 'AC output voltage', 'AC output frequency',
+        self.df = pd.read_csv(metingleer, names=['Date', 'Time', 'Grid voltage', 'Grid frequency', 'AC output voltage', 'AC output frequency',
                                  'AC output apparent power', 'AC output active power', 'Output load percent',
                                  'BUS voltage', 'Battery voltage', 'Battery charging current', 'Battery capacity',
                                  'Inverter heat sink temperature', 'PV Input current 1', 'PV Input voltage 1',
@@ -87,58 +75,44 @@ class dagMeting:
         self.df['EnergieOnttrekBattery'] = self.df['dT']*self.df['Battery voltage']*self.df['Battery discharge current']/1000
 
         # Energie statistiek
+        lasenergie = self.df['EnergieGelewer'][1:-1].sum()
         print('Energie gelewer aan las is')
-        print(self.df['EnergieGelewer'][1:-1].sum())
-        print('Skyn Energie gelewer aan las is')
-        print(self.df['SkynEnergieGelewer'][1:-1].sum())
+        print(lasenergie)
+        print('Skyn energie gelewer aan las is')
+        skynenergie = self.df['SkynEnergieGelewer'][1:-1].sum()
+        print(skynenergie)
 
         print('Energie opgewek uit PV is')
-        print(self.df['EnergiePV'][1:-1].sum())
+        sonenergie = self.df['EnergiePV'][1:-1].sum()
+        print(sonenergie)
         
         # Battery statistiek
+        laaienergie = self.df['EnergieLaaiBattery'][1:-1].sum()
         print('Energie gebruik om battery te laai is')
-        print(self.df['EnergieLaaiBattery'][1:-1].sum())
+        print(laaienergie)
         print(self.df['EnergieLaaiBattery'][1:-1].sum()*1000/48)
+        ontlaaienergie = self.df['EnergieOnttrekBattery'][1:-1].sum()
         print('Energie onttrek uit battery is')
-        print(self.df['EnergieOnttrekBattery'][1:-1].sum())
+        print(ontlaaienergie)
         print(self.df['EnergieOnttrekBattery'][1:-1].sum()*1000/48)
 
-
-
-
-
-eenDag = dagMeting(leernaam)
-eenDag.plotAlleParameters()
-eenDag.drukAlleBerekeninge()
-
-
-
-
-
-
-
-
-
-
-
-
-                                  
-                                 
-                                 
-                                 
-
+        # Vertoon energie insit in stelsel (nog nie seker of hierdie reg is nie)
+        print('Lyn energie gelewer aan gelykrigter is')
+        lynenergie = skynenergie - sonenergie + laaienergie + ontlaaienergie
+        print(lynenergie)
 
 
 
 
 # Te doen:
-# Kyk of die OWL nie eintlik verwys na skyndrywing VAR nie.  Miskien is dit wat dit wys en werklike drywing is eers na verliese?
-# Stel energiebalans op.  Wat gaan in en wat gaan uit.  En is daar 'n netto voordeel.
+
 
 # Skryf 'n verslag module wat 'n markdown verslag maak van 'n sekere dag se plot data.
 # Skryf 'n plot funksie wat 'n sekere plot maak.
 
+# Skryf 'n module wat die opsomming van kWh in 'n dag uitskryf na 'n leer.
+
 # Berekende energie onttrek uit battery is altyd meer as laai energie.  Hoe is dit moontlik?
 # Laai die battery miskien nie heeltemal nie?  Miskien moet laai stroom laer gestel word.
 # Miskien is die sampling rate te groot om die groot laaistrome te sien wat die battery laai?
-
+# Miskien gaan die krag eers deur die battery voor dit na die verbruikers van die krag toe gaan.
