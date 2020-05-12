@@ -9,7 +9,7 @@ dfmetings = pd.read_csv(metinglysleernaam, names=['metings'],
 
 
 # Lees in 'n meting
-leernaam = dfmetings['metings'][2]
+leernaam = dfmetings['metings'][6]
 
 
 eenDag = dagMeting(leernaam)
