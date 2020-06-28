@@ -25,6 +25,14 @@ Ek sien dit uit die kraglesings
 
 
 
+Loop geyser vandag (van 12:52 op 29 Mei 2020) deur inverter om baie koue gebruik van geyser te monitor
+
+Min temp was 3 grade gisteraand
+
+Min temp vanaf 00:00 op 30 Mei 2020 was:
+
+
+
 ## Waarnemings
 
 Maar die geyser sit glad nie baie aan en af nie. So die histerese of die aan af punt is baie "los"
