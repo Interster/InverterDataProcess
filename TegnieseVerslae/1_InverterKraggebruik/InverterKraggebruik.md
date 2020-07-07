@@ -31,6 +31,8 @@ Die doel van hierdie ondersoek is om te bepaal wat die werklike energiekoste is 
 
 ### Voorafbetaalde meter meting
 
+#### Inleiding
+
 Die volgende gesprek bespreek die eksperiment van die meting:
 
 [21:02, 6/29/2020] Gideon: Die prepaid meters is meer akkuraat, maar nie met oombliklike drywingsverbruik nie, maar akkumulatiewe energieverbruik
@@ -66,3 +68,35 @@ Skuus, VAr’e
 [23:17, 6/29/2020] Gideon: Jou metertjie meet die skyndrywing, wat glad nie akkuraat is is die pf ver van 1 af is nie
 [23:17, 6/29/2020] Gideon: *is as
 
+
+
+#### Meterlesings
+
+
+Begin Axpert meting 301.3 op 2020-07-03 15:00
+
+Eindig Axpert meting 284.4 op 2020-07-05 18:54
+
+![20200703_145918](Prente/20200703_145918.jpg)
+
+Die DB het die volgende instellings gehad.  Net die Axpert het krag gekry met die muurproppe.  Alle ander toestelle is uitgeprop uit die muurproppe.  Net die yskaste en TV is ingeprop op die gelykrigter se proppe.
+
+![20200703_145928](Prente/20200703_145928.jpg)
+
+
+
+![20200705_185407](Prente/20200705_185407.jpg)
+
+
+
+Die lesing op die OWL drywingsmeter was as volg:
+
+![20200705_185726](Prente/20200705_185726.jpg)
+
+Die voorafbetaalde meter het dus 16.9kWh gelees in 51.9 uur en die OWL drywingsmeter het 24.22kWh gelees in dieselfde tydperk.  Die voorafbetaalde meter word geneem as die maatstaf omdat die energie betaal word op die basis van hierdie meter se lesing.  Dus het die OWL drywingsmeter 7.32kWh te veel gelees oor die tydperk en dit werk uit op 'n gemiddeld  van 141W wat te veel gelees word op enige gegewe tyd.
+
+Die lesingsfout wat die OWL maak kan toegeskryf word aan die feit dat die OWL net stroom gelewer meet en nie ook die spanning meet nie.  Dit kan dus nie onderskei tussen skyndrywing en ware drywing nie.  Die drywingsfaktor van die laste gekoppel tydens die eksperiment is laer as 0.8 omdat die laste meestal induktiewe laste is.  Die laste was oorwegend yskaste wat kompressormotors het wat 'n induktiewe las veroorsaak.  Die OWL meter lees dus die totale drywing wat 'n groot komponent skyndrywing bevat en dus oorskat die lesing die werklike drywing.  Die OWL vereis dat die gebruiker 'n spanning intik wat die gemiddeld is wat verwag word, naamlik 240V in hierdie spesifieke geval.  Dit lei tot die oorskatting.  Die OWL kan dus net vir vergelykende metings en AAN/AF tipe metings gebruik word, of in die onwaarskynlike geval dat daar 'n suiwer weerstandslas is.  Die mengsel van laste in 'n huis is meestal induktief van aard, dus is dit nie baie prakties vir die toepassing nie.
+
+#### Axpert drywing leweringslesing
+
+Hier is die logs van die Axpert oor die tydperk.
