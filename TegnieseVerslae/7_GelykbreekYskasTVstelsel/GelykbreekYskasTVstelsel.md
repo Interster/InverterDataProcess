@@ -26,7 +26,13 @@ In winter sit oor na battery teen 20:00. Dan laai in dag. Sit oor na  lynkrag te
 
 Herhaal met boom gesny.
 
-   
+
+
+## Berekening met munisipale elektrisiteit meter metings
+
+
+
+## Berekening met Solar Assistant metings
 
 
 
